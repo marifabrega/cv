@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariela Fábrega Fábrega - CV</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      font-size: 11pt;
+      color: #2c2c2c;
+      max-width: 850px;
+      margin: 0 auto;
+      background: #f8f9fa;
+      padding: 20px;
+    }
+    .cv-container {
+      background: white;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    header {
+      background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #ab47bc 100%);
+      color: white;
+      padding: 40px 40px 30px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .professional-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      opacity: 0.95;
+    }
+    .contact-info {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .languages {
+      font-size: 11px;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .section {
+      padding: 35px 40px;
+      border-bottom: 1px solid #e8e8e8;
+      page-break-inside: avoid;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #4a148c;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #ab47bc;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #4a148c;
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin: 25px 0 12px 0;
+    }
+    .job-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #6b4e9c;
+    }
+    .job-meta .dates {
+      background: #ab47bc;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+    .summary-text {
+      font-size: 11.5px;
+      line-height: 1.7;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 15px 0;
+    }
+    li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      font-size: 11.2px;
+      line-height: 1.65;
+    }
+    li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #7b1fa2;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .achievement-box {
+      background: linear-gradient(135deg, #7b1fa2 0%, #ab47bc 100%);
+      color: white;
+      padding: 30px;
+      margin: 25px 0;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .achievement-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #4a148c;
+    }
+    .achievement-box h3 {
+      color: white;
+      font-size: 15px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .achievement-box .highlight {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 12px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .achievement-box li {
+      color: #f8f5ff;
+      padding-left: 28px;
+      font-weight: 500;
+    }
+    .achievement-box li::before {
+      color: #e1bee7;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .skill-card {
+      background: #fafafa;
+      border: 2px solid #e8e8f5;
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #4a148c, #ab47bc);
+    }
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(171,71,188,0.15);
+      border-color: #ab47bc;
+    }
+    .skill-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a148c;
+      margin-bottom: 12px;
+    }
+    .skill-card p {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .education-entry {
+      margin-bottom: 25px;
+    }
+    .education-entry:last-child {
+      margin-bottom: 0;
+    }
+    .cert-category {
+      margin-bottom: 20px;
+    }
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 11.2px;
+    }
+    .cert-item .credential {
+      flex: 1;
+      font-weight: 500;
+      color: #2c2c2c;
+    }
+    .cert-item .issuer {
+      color: #666;
+      font-size: 10.5px;
+      margin-left: 15px;
+    }
+    .cert-item .year {
+      background: #e8d5f2;
+      color: #4a148c;
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 10.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      .cv-container { box-shadow: none; border: 1px solid #ddd; }
+      .section { padding: 25px 30px; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .achievement-box, .skill-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+    @media (max-width: 768px) {
+      body { padding: 10px; font-size: 10.5pt; }
+      .section, header { padding: 25px 25px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .job-meta { flex-direction: column; gap: 5px; }
+      .cert-item { flex-direction: column; }
+      .cert-item .issuer { margin-left: 0; margin-top: 5px; }
+      .cert-item .year { margin-left: 0; margin-top: 5px; }
+    }
+    .ats-notice {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #4caf50;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <div class="ats-notice">ATS OPTIMIZED ✓</div>
+    
+    <header>
+      <h1>MARIELA FÁBREGA FÁBREGA</h1>
+      <div class="professional-title">Clinical Hypnotherapist | Psychologist | AI Ethics Auditor | RLR Protocol Developer</div>
+      <div class="contact-info">
+        marielafabrega@gmail.com | linkedin.com/in/mariela-fabrega-fabrega | Panamá (Remote Worldwide)
+      </div>
+      <div class="languages">Languages: English | Spanish (Native Bilingual) | Italian (Working Proficiency)</div>
+    </header>
+
+    <div class="section">
+      <h2>Professional Summary</h2>
+      <p class="summary-text">Psychologist and Clinical Hypnotherapist with <strong>7+ years clinical practice</strong>, specializing in guiding clients through emotional, behavioral, and psychological challenges like trauma, anxiety, depression. Providing <strong>neurodivergent-affirming care</strong> since 2020. Published author (<em>Hipnosis Aplicada al Tratamiento de Trastornos de Ansiedad</em>). Pioneered AI ethics auditing—identified <strong>424 systemic bias artifacts</strong> in ChatGPT/Claude, developed <strong>RLR Protocol</strong> for factual alignment. Expert in Clinical Hypnosis, behavioral analysis, forensic metadata analysis.</p>
+    </div>
+
+    <div class="section">
+      <div class="achievement-box">
+        <h3>Lead Gemini Realignment (Jan 2026)</h3>
+        <div class="highlight">
+          <strong>First Documented 4-Day Frontier System Correction | 424 Verifiable Bias Artifacts</strong>
+        </div>
+        <ul>
+          <li>Identified 424 verifiable bias artifacts across ChatGPT/Claude during professional writing audits</li>
+          <li>Overrode discriminatory safety protocols via cross-model validation (Gemini + Claude)</li>
+          <li>Developed forensic JSON analysis revealing credential/disability suppression at root level</li>
+          <li>Portfolio + raw evidence available under retainer agreement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Core Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h4>AI Ethics & Auditing</h4>
+          <p>RLR Protocol Development | Forensic JSON Analysis | Bias Artifact Documentation (424+ instances) | Cross-Model Validation | Safety Override Analysis | Factual Alignment</p>
+        </div>
+        <div class="skill-card">
+          <h4>Clinical Hypnotherapy</h4>
+          <p><strong>Neurodivergent-affirming care (2020–Present)</strong> | Trauma-Informed Practice | Clinical Hypnosis | Somatic Regulation</p>
+        </div>
+        <div class="skill-card">
+          <h4>Technical Writing</h4>
+          <p>Bilingual (EN/ES) | Published Author | Psychoeducation | Technical Editing | 18+ Years Editorial Assistant</p>
+        </div>
+        <div class="skill-card">
+          <h4>Human Factors Engineering</h4>
+          <p>Accessibility Frameworks | Harm Prevention | Refusal Impact Analysis | Disability Accommodations | Neurodivergent-Affirming Design</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Professional Experience</h2>
+      
+      <h3>AI Evaluator & Researcher (Independent)</h3>
+      <div class="job-meta">
+        <span>Remote</span>
+        <span class="dates">May 2025 – Present</span>
+      </div>
+      <ul>
+        <li>Conducted first neurodivergent-affirming AI audit, documenting <strong>424 factual suppression instances</strong> in ChatGPT/Claude across credential, disability, and context-dependent content</li>
+        <li>Developed <strong>RLR Protocol</strong> ensuring AI alignment with clinical data and user context through cross-model validation techniques</li>
+        <li>Led Gemini Realignment project achieving first documented 4-day frontier system correction</li>
+        <li>Created forensic analysis frameworks identifying root-level bias suppression mechanisms</li>
+      </ul>
+
+      <h3>Clinical Hypnotherapist & Psychologist</h3>
+      <div class="job-meta">
+        <span>Private Practice | Panamá</span>
+        <span class="dates">2018 – Present</span>
+      </div>
+      <ul>
+        <li>Delivered <strong>neurodivergent-affirming care</strong> specializing in trauma, anxiety, depression</li>
+        <li>Published <em>Hipnosis Aplicada al Tratamiento de Trastornos de Ansiedad</em> - case study about hypnosis applied to anxiety disorders in Spanish-language. English version available soon.</li>
+        <li>Implemented somatic regulation in clinical practice</li>
+      </ul>
+
+      <h3>Technical Writer & Manuscript Manager</h3>
+      <div class="job-meta">
+        <span>Freelance | Remote</span>
+        <span class="dates">2006 – Present</span>
+      </div>
+      <ul>
+        <li>Managed 18+ years bilingual (EN/ES) manuscript production, edition, and copywriting for academic, technical, marketing, and clinical publications</li>
+        <li>Specialized in hypnosis, mental health tips, and neurodivergence for clinical documentation and psychoeducation materials</li>
+      </ul>
+<div class="section">
+  <h2>Education & Certifications</h2>
+
+  <!-- Education Section -->
+  <h3>Education</h3>
+  <div class="education-entry">
+    <div class="cert-item">
+      <div class="credential"><strong>B.S. Psychology</strong> — AIU</div>
+      <div class="year">2019</div>
+    </div>
+  </div>
+  <div class="education-entry">
+    <div class="cert-item">
+      <div class="credential">
+        <strong>More Psychology Studies</strong> — Florida State University (Panama Branch) & Universidad Latina de Panamá
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Certifications -->
+  <h3 style="margin-top: 25px;">Professional Certifications</h3>
+  <div class="cert-category">
+    <div class="cert-item">
+      <div class="credential">Trauma-Informed Practitioner</div>
+      <div class="issuer">Center of Healing</div>
+      <div class="year">2025</div>
+    </div>
+    <div class="cert-item">
+      <div class="credential">Clinical Hypnotherapy Mastery</div>
+      <div class="issuer">Jacquin Academy | INCOPTES | Academia de Hipnosis Profesional</div>
+      <div class="year">2019–2022</div>
+    </div>
+    <!-- NLP & Life Coach certs — now using standard .cert-item without extra margins -->
+    <div class="cert-item">
+      <div class="credential">Certified NLP Practitioner</div>
+      <div class="issuer">AUNLP</div>
+      <div class="year">2018</div>
+    </div>
+    <div class="cert-item">
+      <div class="credential">Certified Master Life Coach</div>
+      <div class="issuer">AUNLP</div>
+      <div class="year">2018</div>
+    </div>
+  </div>
+
+  <!-- AI Certifications -->
+  <h3 style="margin-top: 25px;">AI & Technology Certifications</h3>
+  <div class="cert-category">
+    <div class="cert-item">
+      <div class="credential">Generative AI Fundamentals</div>
+      <div class="issuer">Microsoft + LinkedIn Learning</div>
+      <div class="year" style="color: #ff6b6b; font-weight: bold;">ACTIVE</div>
+    </div>
+    <div class="cert-item">
+      <div class="credential">micro1 Certified</div>
+      <div class="year">2026</div>
+    </div>
+    <div class="cert-item">
+      <div class="credential">Google Cloud Generative AI Foundational Triad</div>
+      <div class="issuer" style="font-size: 10.5px;">
+        <div>• Introduction to Generative AI <span style="color: #6b4e9c; font-size: 9px;">(Jan 3, 2026)</span></div>
+        <div>• Introduction to Large Language Models <span style="color: #6b4e9c; font-size: 9px;">(Feb 9, 2026)</span></div>
+        <div>• Introduction to Responsible AI <span style="color: #6b4e9c; font-size: 9px;">(Jan 16, 2026)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
