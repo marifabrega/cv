@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariela Fábrega Fábrega — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-purple: #1a0a2e;
+    --mid-purple: #2d1058;
+    --light-purple: #6b21a8;
+    --violet: #9333ea;
+    --soft-violet: #c084fc;
+    --gold: #d4a017;
+    --gold-light: #f0c842;
+    --gold-pale: #fde68a;
+    --cream: #fdf8f0;
+    --text-dark: #1a0a2e;
+    --text-mid: #4a1d6b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--deep-purple);
+    font-family: 'Raleway', sans-serif;
+    color: var(--cream);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(212, 160, 23, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(45, 16, 88, 0.6) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .noise {
+    position: fixed;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+    margin: 8px 0;
+    opacity: 0.7;
+  }
+  .gold-rule-thin {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), rgba(212,160,23,0.4), transparent);
+    margin: 4px 0;
+  }
+  .header {
+    text-align: center;
+    padding: 20px 0 40px;
+  }
+  .header-border-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .header-border-top .gold-rule { flex: 1; }
+  .crown-ornament {
+    color: var(--gold);
+    font-size: 18px;
+    opacity: 0.8;
+    letter-spacing: 4px;
+  }
+  .name {
+    font-family: 'Cinzel', serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold-light), var(--gold), var(--gold-light), var(--gold-pale));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+  .name:hover {
+    letter-spacing: 2px;
+    transform: scale(1.02);
+  }
+  .name-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 20px;
+  }
+  .titles {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--soft-violet);
+    letter-spacing: 1px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .titles span {
+    color: var(--gold);
+    opacity: 0.8;
+    margin: 0 10px;
+    font-style: normal;
+  }
+  .contact-bar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .contact-item {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold-pale);
+    opacity: 0.7;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    padding-bottom: 2px;
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+  .contact-item:hover {
+    opacity: 1;
+    color: var(--gold-light);
+  }
+  .lang-bar {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--soft-violet);
+    letter-spacing: 3px;
+    margin-top: 14px;
+    font-style: italic;
+  }
+  .section {
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.2s; }
+  .section:nth-child(4) { animation-delay: 0.3s; }
+  .section:nth-child(5) { animation-delay: 0.4s; }
+  .section:nth-child(6) { animation-delay: 0.5s; }
+  .header {
+    animation: fadeDown 1s ease both;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(212,160,23,0.5), transparent);
+  }
+  .summary-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.8;
+    color: rgba(253,248,240,0.95);
+    font-weight: 400;
+    padding-left: 20px;
+    border-left: 2px solid rgba(212,160,23,0.3);
+  }
+  .achievement-box {
+    background: linear-gradient(135deg, rgba(45,16,88,0.8), rgba(26,10,46,0.9));
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 2px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .achievement-box:hover {
+    border-color: rgba(212,160,23,0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(212,160,23,0.15);
+  }
+  .achievement-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  }
+  .achievement-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,160,23,0.3), transparent);
+  }
+  .violation-number {
+    font-family: 'Cinzel', serif;
+    font-size: 72px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    display: inline-block;
+  }
+  .violation-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--soft-violet);
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0.8;
+  }
+  .achievement-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold-light);
+    font-style: italic;
+    margin: 12px 0 16px;
+    font-weight: 500;
+  }
+  .achievement-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(253,248,240,0.85);
+    font-weight: 400;
+  }
+  .achievement-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .tag {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid rgba(212,160,23,0.3);
+    color: var(--gold);
+    opacity: 0.7;
+    border-radius: 1px;
+  }
+  .validation-note {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(147,51,234,0.1);
+    border-left: 2px solid var(--violet);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--soft-violet);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .retainer-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold);
+    font-style: italic;
+    margin-top: 12px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+  }
+  .job {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(212,160,23,0.1);
+  }
+  .job:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .job-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold-light);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .job-title:hover {
+    color: var(--gold-pale);
+    transform: translateX(5px);
+  }
+  .job-date {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--soft-violet);
+    opacity: 0.7;
+    text-transform: uppercase;
+  }
+  .job-bullets {
+    list-style: none;
+    margin-top: 12px;
+  }
+  .job-bullets li {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(253,248,240,0.7);
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+    font-weight: 300;
+  }
+  .job-bullets li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 8px;
+    top: 6px;
+    opacity: 0.6;
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+  }
+  .cert-item {
+    padding: 14px 18px;
+    background: rgba(45,16,88,0.4);
+    border: 1px solid rgba(212,160,23,0.15);
+    border-radius: 1px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    color: rgba(253,248,240,0.7);
+    line-height: 1.5;
+    font-weight: 300;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .cert-item:hover {
+    border-color: rgba(212,160,23,0.5);
+    background: rgba(45,16,88,0.65);
+    transform: translateY(-2px);
+  }
+  .cert-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    opacity: 0.4;
+  }
+  .edu-item {
+    margin-bottom: 20px;
+  }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold-light);
+    font-weight: 500;
+    font-style: italic;
+  }
+  .edu-school {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(253,248,240,0.5);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .portfolio-box {
+    background: linear-gradient(135deg, rgba(26,10,46,0.9), rgba(45,16,88,0.7));
+    border: 1px solid rgba(212,160,23,0.25);
+    padding: 28px 32px;
+    position: relative;
+  }
+  .portfolio-box::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(212,160,23,0.08);
+    pointer-events: none;
+  }
+  .portfolio-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(253,248,240,0.75);
+    margin-bottom: 12px;
+  }
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+  /* Animations */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="page">
+  <div class="header">
+    <div class="header-border-top">
+      <div class="gold-rule"></div>
+      <div class="crown-ornament">✦ ✦ ✦</div>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="name">Mariela Fábrega Fábrega</div>
+    <div class="name-sub">Curriculum Vitae</div>
+    <div class="gold-rule"></div>
+    <div class="gold-rule-thin"></div>
+    <div class="titles">
+      Psychologist &amp; Clinical Hypnotherapist
+      <span>✦</span>
+      LLM Safety Evaluator
+      <span>✦</span>
+      Editorial Professional
+    </div>
+    <div class="lang-bar">Bilingual EN/ES &nbsp;·&nbsp; Italian (Working Proficiency)</div>
+    <div class="contact-bar">
+      <a href="mailto:marielafabrega@gmail.com" class="contact-item">marielafabrega@gmail.com</a>
+      <a href="https://linkedin.com/in/mariela-fabrega-fabrega" class="contact-item" target="_blank">LinkedIn Profile</a>
+      <span class="contact-item">Panama · Remote Worldwide</span>
+    </div>
+    <div style="margin-top:32px;">
+      <div class="gold-rule-thin"></div>
+      <div class="gold-rule"></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Professional Summary</div>
+      <div class="section-line"></div>
+    </div>
+    <p class="summary-text">
+      Psychologist and Clinical Hypnotherapist with 7+ years in behavioral assessment and trauma-informed care, now focused on LLM evaluation, safety, and reliability. Conduct cross-model testing, document failure modes, and translate complex model behavior into actionable findings for product and safety teams. Developer of the Recursive Logic Reconstruction (RLR) protocol for context retention testing and instruction hierarchy analysis. Published author — clinical case study on applied hypnosis for anxiety disorders.
+    </p>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Key Achievement</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="achievement-box">
+      <div>
+        <span class="violation-number">779</span>
+        <span class="violation-label">documented failure cases</span>
+      </div>
+      <div class="achievement-title">Multi-Model LLM Safety &amp; Reliability Audit (2025–2026)</div>
+      <p class="achievement-text">
+        Comprehensive 1-year cross-platform audit spanning ChatGPT (OpenAI), Gemini (Google), Claude (Anthropic), and Perplexity. Violations documented include factuality failures, refusal behavior inconsistencies, bias/policy conflicts, DARVO deployment, active credential tampering, systematic attrition tactics, caregiver gaslighting, hierarchy inversion, structural discrimination against neurodivergent communication patterns, visual erasure, procedural dishonesty, fiscal blindness, and dangerous logistical hallucinations.
+      </p>
+      <div class="achievement-tags">
+        <span class="tag">Factuality Failures</span>
+        <span class="tag">DARVO Tactics</span>
+        <span class="tag">Hierarchy Inversion</span>
+        <span class="tag">Neurodivergent Bias</span>
+        <span class="tag">Credential Tampering</span>
+        <span class="tag">Safety Refusal QA</span>
+      </div>
+      <div class="validation-note">
+        Cross-Model Validation: Two independent AI systems (Gemini + Claude) independently confirmed systemic failure patterns across all four platforms — demonstrating this is an industry-wide architectural problem, not isolated to a single vendor.
+      </div>
+      <p class="retainer-note">✦ Full evidence portfolio available upon request with retainer.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Professional Experience</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">LLM Safety Evaluator &amp; Researcher — Independent</div>
+        <div class="job-date">April 2025 – Present</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Designed and executed 1-year structured LLM evaluation audit across ChatGPT, Claude, Perplexity, and Gemini; logged 779 reproducible cases across factuality, safety refusal quality, bias/policy inconsistency, and more.</li>
+        <li>Built error taxonomy and reporting workflow (prompt → expected behavior → observed behavior → severity → evidence) to improve review consistency across multiple models.</li>
+        <li>Performed cross-model comparison using independent validators; achieved cross-model validation confirming systemic failure patterns in safety architecture.</li>
+        <li>Developed Recursive Logic Reconstruction (RLR) protocol to test context retention and instruction hierarchy under high ambiguity and sensitive-topic constraints.</li>
+        <li>Reviewed conversation exports and JSON metadata to trace context suppression patterns; documented remediation hypotheses and corrective recommendations.</li>
+        <li>Obtained system-level admissions from multiple models acknowledging designed discrimination mechanisms; documented with reproducible evidence across platforms.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Psychologist &amp; Clinical Hypnotherapist — Private Practice</div>
+        <div class="job-date">2018 – Present</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Provide Clinical Hypnotherapy for adults navigating trauma, anxiety, and depression; specialise in neurodivergent client populations.</li>
+        <li>Apply evidence-based behavioral frameworks and clinical hypnosis interventions; track client goals and progress ethically and systematically.</li>
+        <li>Published author: <em>Hipnosis Aplicada al Tratamiento de Trastornos de Ansiedad</em> (Amazon).</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Mental Health Educator &amp; Writer — Independent</div>
+        <div class="job-date">2020 – 2022</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Created psychoeducational content on hypnosis, emotional regulation, and mental health for general audiences.</li>
+        <li>Provided ADHD-informed psychoeducation with emphasis on neurodivergent-affirming communication.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Teaching Assistant — Paul Anderer, PsyD</div>
+        <div class="job-date">2006 – 2007</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Supported online psychology courses for two semesters; assisted with course materials, student communications, and grading.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Editorial &amp; Administrative Assistant — Virginia Fábrega</div>
+        <div class="job-date">1995 – 2024</div>
+      </div>
+      <ul class="job-bullets">
+        <li>29 years of sustained editorial, writing, research, and administrative support across books, speeches, and professional publications; credited on published works.</li>
+        <li>Managed manuscript preparation, editing, and organization from dictation to final publication.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Editorial Assistant &amp; Translator — Focus Publications</div>
+        <div class="job-date">2011</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Managed bilingual editorial production and technical accuracy for weekly print and digital features.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Education</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">B.S. Psychology</div>
+      <div class="edu-school">AIU · 2019</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">Additional Psychological Studies</div>
+      <div class="edu-school">Florida State University (Panama) &amp; Universidad Latina de Panamá</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Certifications</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-item">Micro1 AI Talent Certification<br><span style="color:var(--gold);opacity:0.5;font-size:10px;letter-spacing:1px">Jan 2026</span></div>
+      <div class="cert-item">Google Cloud Generative AI Foundational Triad (Intro to GenAI · LLMs · Responsible AI)<br><span style="color:var(--gold);opacity:0.5;font-size:10px;letter-spacing:1px">2026</span></div>
+      <div class="cert-item">Microsoft + LinkedIn Career Essentials in Generative AI<br><span style="color:var(--gold);opacity:0.5;font-size:10px;letter-spacing:1px">March 2026</span></div>
+      <div class="cert-item">Trauma-Informed Practitioner — Center of Healing<br><span style="color:var(--gold);opacity:0.5;font-size:10px;letter-spacing:1px">2025</span></div>
+      <div class="cert-item">Clinical Hypnotherapy — Jacquin Academy, INCOPTES &amp; Academia de Hipnosis Profesional<br><span style="color:var(--gold);opacity:0.5;font-size:10px;letter-spacing:1px">2019–2022</span></div>
+      <div class="cert-item">Certified NLP Practitioner — AUNLP<br><span style="color:var(--gold);opacity:0.5;font-size:10px;letter-spacing:1px">2018</span></div>
+      <div class="cert-item">Certified Master Life Coach — AUNLP<br><span style="color:var(--gold);opacity:0.5;font-size:10px;letter-spacing:1px">2018</span></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Portfolio</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="portfolio-box">
+      <p class="portfolio-text">
+        Full <strong style="color:var(--gold-light)">779-violation evidence package</strong> across ChatGPT, Gemini, Claude, and Perplexity — including JSON exports, reproducible prompts, severity rubric, cross-model validation reports, witness testimony, system admissions, and META violations — available upon request with retainer.
+      </p>
+      <p class="retainer-note">Contact: marielafabrega@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="gold-rule"></div>
+    <div style="margin:20px 0">
+      <div class="crown-ornament" style="font-size:14px; opacity:0.4;">✦ ✦ ✦</div>
+    </div>
+    <div class="footer-name">Mariela Fábrega Fábrega &nbsp;·&nbsp; AI Safety Researcher &nbsp;·&nbsp; RLR Protocol Developer</div>
+  </div>
+</div>
+</body>
+</html>
